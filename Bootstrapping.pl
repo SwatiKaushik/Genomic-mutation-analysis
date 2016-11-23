@@ -1,17 +1,18 @@
 # perform t.test of wild type and mutant samples. Input data (gene expression matrix) should be sorted according to mutation information (wildtype to mutant as 0/1)
 # Keeps 10% of wild and mutant samples from dataset and perform bootstrapping to get difference in mean expression values
-# 2016-02-16
+# Swati Kaushik 2016-02-16
 
 use strict;
 use warnings;
 use Statistics::R;
 
-
-open GE, "non-redundant-LUADmatrix" or die $!;
+my $filename = $ARGV[0];
+open GE, "$filename" or die $!;
 
 my @exprfile =<GE>;
 shift @exprfile;
 
+#write output
 open OUT, ">>muliple-test-bootstrapping" or die $!;
 
 foreach (@exprfile){
