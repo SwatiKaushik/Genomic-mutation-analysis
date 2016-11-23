@@ -7,12 +7,16 @@ use warnings;
 use Statistics::R;
 use List::MoreUtils qw(uniq);
 
-open IN, "direct-interactors"  or die $!;
+#read the input file
+my $filename = $ARGV[0];
+my $mutation_file = $ARGV[1];
+
+open IN, "$filename"  or die $!;
 my @interactor_file = <IN>;
 
 my $gene_name = 'XX';
 
-open AH, "data_file.maf" or die $!;
+open AH, "$mutation_file" or die $!;
 my @tcga_mutation_file =<AH>;
 
 open OUTALL, ">Odds-ratio-ints.txt" or die $!;
