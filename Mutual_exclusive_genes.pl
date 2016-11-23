@@ -1,6 +1,6 @@
 # Calculate mutual exclusive interactors
 # Follows the same approach as TCGA mutual exclusivity analyses
-# March 21 2016
+# Swati Kaushik March 21 2016
 
 use strict;
 use warnings;
